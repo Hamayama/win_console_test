@@ -2,7 +2,7 @@
 
 ## 概要
 - Windows Terminal で、入出力を確認する C のテストプログラムです。  
-  (Windows Terminal でしか動作しないため、Windows 10 以後が必要です)
+  (Windows Terminal でしか動作しないため、Windows 10 以降が必要です)
 
 
 ## インストール方法
@@ -23,11 +23,14 @@
 
 ## 実行結果
 1. 入力確認のテストプログラム  
+   (キー入力、漢字入力、マウス操作、画面サイズ変更を検出できます)
    ![image](image/win_con_input_0001.png)
 
 
 2. 出力確認のテストプログラム  
+   (座標を指定して文字列を出力できます。また、文字の属性 (bold, italic, underline, reverse) を指定できます)  
    ![image](image/win_con_output_0001.png)  
+   (RGB 各 8 ビットの 24 ビットカラーを指定できます)  
    ![image](image/win_con_output_0002.png)
 
 
@@ -54,7 +57,7 @@
                            SHORT *mouse_x, SHORT *mouse_y, DWORD *mouse_button, DWORD *mouse_ctrl, DWORD *mouse_event_flag);
    ```
 
-2. 24-bit カラーと属性 (bold, italic, underline, reverse) の設定は、  
+2. 24 ビットカラーと属性 (bold, italic, underline, reverse) の指定は、  
    VT エスケープシーケンスで行っています。  
    ( https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences )  
    それ以外は、Windows API を使用しています。
