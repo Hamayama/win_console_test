@@ -17,15 +17,14 @@
    0000_compile.bat を (ダブルクリック等で) 実行してください。
 
 3. 本プログラムの実行  
-   1000_exec_input.bat  で、入力確認のテストプログラムを起動します。  
-   1001_exec_output.bat で、出力確認のテストプログラムを起動します。
+   1000_exec_input.bat  で、入力確認のテストプログラム (win_console_input) を起動します。  
+   1001_exec_output.bat で、出力確認のテストプログラム (win_console_output) を起動します。
 
 
 ## 実行結果
 1. 入力確認のテストプログラム  
-   (キー入力、漢字入力、マウス操作、画面サイズ変更 を検出できます)
+   (キー入力、漢字入力、マウス操作、画面サイズ変更 を検出できます)  
    ![image](image/win_con_input_0001.png)
-
 
 2. 出力確認のテストプログラム  
    (座標を指定して文字列を出力できます。また、文字の属性 (bold, italic, underline, reverse) を指定できます)  
@@ -36,6 +35,7 @@
 
 ## 内容
 1. win_con_lib_1000.h に以下のコンソール入出力の関数を定義しています。  
+   (各テストプログラムは、このファイルを include して使用しています)  
    ```
    BOOL init_screen(DWORD *con_input_mode_orig, DWORD *con_output_mode_orig);
    BOOL end_screen(int restore_on, DWORD con_input_mode_orig, DWORD con_output_mode_orig);
