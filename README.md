@@ -32,10 +32,32 @@
 
 
 ## ノウハウ等
-1. win_con_lib_1000.h にコンソール入出力の関数を定義しています。  
-   24-bit カラーと属性 (bold, italic, underline, reverse) の設定は、  
+1. win_con_lib_1000.h に以下のコンソール入出力の関数を定義しています。  
+   ```
+   BOOL init_screen(DWORD *con_input_mode_orig, DWORD *con_output_mode_orig);
+   BOOL end_screen(int restore_on, DWORD con_input_mode_orig, DWORD con_output_mode_orig);
+   BOOL clear_screen(void);
+   BOOL get_screen_size(int *w, int *h);
+   BOOL set_foreground_color_rgb24(int r, int g, int b);
+   BOOL set_background_color_rgb24(int r, int g, int b);
+   BOOL set_bold(int on);
+   BOOL set_italic(int on);
+   BOOL set_underline(int on);
+   BOOL set_reverse(int on);
+   BOOL get_cursor_position(int *x, int *y);
+   BOOL set_cursor_position(int  x, int  y);
+   BOOL set_cursor_visible(int on);
+   BOOL write_console_utf8(char *str);
+   BOOL write_console_utf16(WCHAR *wstr);
+   BOOL read_console_input(WORD *event_type,
+                           BOOL *kdown, WORD *repeat, WORD *vkey, WORD *vscan, WCHAR *uchar, DWORD *ctrl,
+                           SHORT *mouse_x, SHORT *mouse_y, DWORD *mouse_button, DWORD *mouse_ctrl, DWORD *mouse_event_flag);
+   ```
+
+2. 24-bit カラーと属性 (bold, italic, underline, reverse) の設定は、  
    VT エスケープシーケンスで行っています。  
-   ( https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences )
+   ( https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences )  
+   それ以外は、Windows API を使用しています。
 
 
 ## TODO
