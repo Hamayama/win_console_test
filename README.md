@@ -31,7 +31,7 @@
    ![image](image/win_con_output_0002.png)
 
 
-## ノウハウ等
+## 内容
 1. win_con_lib_1000.h に以下のコンソール入出力の関数を定義しています。  
    ```
    BOOL init_screen(DWORD *con_input_mode_orig, DWORD *con_output_mode_orig);
