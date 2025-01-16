@@ -60,7 +60,7 @@
 2. 24 ビットカラーと属性 (bold, italic, underline, reverse) の指定は、  
    VT エスケープシーケンスで行っています。  
    ( https://learn.microsoft.com/ja-jp/windows/console/console-virtual-terminal-sequences )  
-   それ以外は、Windows API を使用しています。
+   それ以外は、(基本的に) Windows API を使用しています。
 
 
 ## TODO
