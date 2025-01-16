@@ -1,6 +1,6 @@
 
 // win_console_input
-// 2025-1-16 v1.00
+// 2025-1-16 v1.01
 
 #include "win_con_lib_1000.h"
 
@@ -102,6 +102,7 @@ int main(void)
                 // get screen size
                 ret = get_screen_size(&width, &height);
                 if (ret == FALSE) {
+                    input_loop = 0;
                     ret_val = 1;
                     break;
                 }

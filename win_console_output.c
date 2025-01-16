@@ -1,6 +1,6 @@
 
 // win_console_output
-// 2025-1-16 v1.00
+// 2025-1-16 v1.01
 
 #include "win_con_lib_1000.h"
 
@@ -52,7 +52,11 @@ int main(void)
     write_console_utf8("123\u200BABC"); // ゼロ幅スペースは半角幅になるもよう
 
     set_cursor_position(10,  0);
-    write_console_utf8("\U0001F525\U0001F363\U0001F431"); // 炎 寿司 猫
+    write_console_utf8(  "\U0001F525\U0001F363\U0001F431");       // 炎 寿司 猫 (utf-8)
+    set_cursor_position(10,  2);
+    write_console_utf16(L"\U0001F525\U0001F363\U0001F431");       // 炎 寿司 猫 (utf-16)
+    set_cursor_position(10,  3);
+    write_console_utf16(L"\xD83D\xDD25\xD83C\xDF63\xD83D\xDC31"); // 炎 寿司 猫 (utf-16 surrogate pair)
 
     set_cursor_position(30,  0);
     set_foreground_color_rgb24(255,   0,   0);

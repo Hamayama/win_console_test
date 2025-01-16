@@ -2,7 +2,7 @@
 #define WIN_CON_LIB_1000_H
 
 // win_con_lib_1000
-// 2025-1-16 v1.00
+// 2025-1-16 v1.01
 
 #include <windows.h>
 #include <stdio.h>
@@ -87,6 +87,7 @@ BOOL init_screen(DWORD *con_input_mode_orig, DWORD *con_output_mode_orig)
         WIN_CON_DISP_LAST_ERR();
         return FALSE;
     }
+    // (enable vt escape sequences)
     if (!SetConsoleMode(hout, ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) {
         WIN_CON_DBG_PRINT("init_screen : SetConsoleMode (2nd) failed.\n");
         WIN_CON_DISP_LAST_ERR();
