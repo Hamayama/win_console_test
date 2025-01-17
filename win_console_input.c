@@ -1,6 +1,6 @@
 
 // win_console_input
-// 2025-1-16 v1.01
+// 2025-1-17 v1.01
 
 #include "win_con_lib_1000.h"
 
@@ -26,12 +26,11 @@ int main(void)
     int width;
     int height;
 
-    // clear screen
-    system("cls");
-
     // init screen
     init_screen(&con_input_mode_orig, &con_output_mode_orig);
 
+    // input test
+    clear_screen();
     printf("Please try key and mouse input.\n");
     printf("( [q] key to quit )\n");
 
