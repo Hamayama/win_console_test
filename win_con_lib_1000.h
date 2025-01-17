@@ -2,7 +2,7 @@
 #define WIN_CON_LIB_1000_H
 
 // win_con_lib_1000
-// 2025-1-16 v1.01
+// 2025-1-17 v1.02
 
 #include <windows.h>
 #include <stdio.h>
@@ -11,8 +11,12 @@
 #define USE_WIN_CON_DBG
 #endif
 
+#ifndef WIN_CON_DBG_OUTPUT_FILE
+#define WIN_CON_DBG_OUTPUT_FILE stderr
+#endif
+
 #ifdef USE_WIN_CON_DBG
-#define WIN_CON_DBG_PRINT(...)  fprintf(stderr, __VA_ARGS__);
+#define WIN_CON_DBG_PRINT(...)  fprintf(WIN_CON_DBG_OUTPUT_FILE, __VA_ARGS__);
 #define WIN_CON_DISP_LAST_ERR() disp_last_err_msg();
 #else
 #define WIN_CON_DBG_PRINT(...)  do { } while (0)
