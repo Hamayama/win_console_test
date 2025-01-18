@@ -2,7 +2,7 @@
 #define WIN_CON_LIB_1000_H
 
 // win_con_lib_1000
-// 2025-1-17 v1.02
+// 2025-1-18 v1.03
 
 #include <windows.h>
 #include <stdio.h>
@@ -23,7 +23,7 @@
 #define WIN_CON_DISP_LAST_ERR() do { } while (0)
 #endif
 
-void disp_last_err_msg(void)
+static void disp_last_err_msg(void)
 {
     int err_code;
     char *err_msg = NULL;
